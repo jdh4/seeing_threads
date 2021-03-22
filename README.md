@@ -1,6 +1,6 @@
 # seeing_threads
 
-[SO page](https://unix.stackexchange.com/questions/892/is-there-a-way-to-see-details-of-all-the-threads-that-a-process-has-in-linux)
+[SO page](https://unix.stackexchange.com/questions/892/is-there-a-way-to-see-details-of-all-the-threads-that-a-process-has-in-linux) with different commands
 
 ## multithreaded
 
