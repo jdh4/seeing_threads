@@ -80,3 +80,25 @@ $ top -H -u jdh4
 26564 jdh4      20   0  175912   2792   1112 S  0.0  0.0   0:00.01 sshd                                                                             
 26565 jdh4      20   0  127028   2860   1684 S  0.0  0.0   0:00.02 bash 
 ```
+
+## Hybrid OpenMP/MPI
+
+```
+  PID USER      PRI  NI  VIRT   RES   SHR S CPU% MEM%   TIME+  Command
+14245 jdh4       21   1 2479M 42884  5844 R 299.  0.0  9:29.93 │  ├─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14273 jdh4	 21   1 2479M 42884  5844 R 99.3  0.0  3:09.36 │  │  ├─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14272 jdh4       21   1 2479M 42884  5844 R 100.  0.0  3:10.08 │  │  └─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14244 jdh4	 21   1 2477M 44944  5852 R 299.  0.0  9:31.31 │  ├─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14275 jdh4	 21   1 2477M 44944  5852 R 100.  0.0  3:10.42 │  │  ├─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14274 jdh4	 21   1 2477M 44944  5852 R 100.  0.0  3:10.42 │  │  └─ /home/jdh4/software/hpc_beginning_workshop/RC_example_jobs/cxx/hybrid_multithreaded_parallel/./mpi_openmp_hello_world
+14223 jdh4	 21   1  110M  1504  1228 S  0.0  0.0  0:00.00 │  ├─ /bin/bash /var/spool/slurmd/job33903909/slurm_script
+14228 jdh4	 21   1  322M  5548  2404 S  0.0  0.0  0:00.00 │  │  └─ srun ./mpi_openmp_hello_world
+14233 jdh4	 21   1  322M  5548  2404 S  0.0  0.0  0:00.00 │  │     ├─ srun ./mpi_openmp_hello_world
+14232 jdh4	 21   1  322M  5548  2404 S  0.0  0.0  0:00.00 │  │     ├─ srun ./mpi_openmp_hello_world
+14231 jdh4	 21   1  322M  5548  2404 S  0.0  0.0  0:00.00 │  │     ├─ srun ./mpi_openmp_hello_world
+14230 jdh4	 21   1  322M  5548  2404 S  0.0  0.0  0:00.00 │  │     ├─ srun ./mpi_openmp_hello_world
+14229 jdh4	 21   1 47928   784     0 S  0.0  0.0  0:00.00 │  │     └─ srun ./mpi_openmp_hello_world
+14324 jdh4	 20   0  171M  2788  1108 S  0.0  0.0  0:00.00 │     └─ sshd: jdh4@pts/0
+14325 jdh4	 20   0  124M  2956  1720 S  0.0  0.0  0:00.02 │        └─ -bash
+14626 jdh4       20   0  131M  3520  1556 R  0.7  0.0  0:00.23 │           └─ htop -u jdh4 -u jdh4
+```
