@@ -156,7 +156,7 @@ The below shows that there a two processes with two explicit threads per process
 14626 jdh4       20   0  131M  3520  1556 R  0.7  0.0  0:00.23 │           └─ htop -u jdh4 -u jdh4
 ```
 
-The below shows
+The below shows two PIDs (14244 and 14245) that are listed three times each (one for each thread):
 
 ```
 $ ps -eLf | head -n 1
@@ -215,6 +215,8 @@ $ top -u jdh4 -H
 14324 jdh4      20   0  175912   2788   1108 S  0.0  0.0   0:00.02 sshd                                                                                                                                         
 14325 jdh4      20   0  127032   2956   1720 S  0.0  0.0   0:00.03 bash
 ```
+
+Not clear how to interpret the following:
 
 ```
 $ pstree -p 14223
