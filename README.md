@@ -2,6 +2,31 @@
 
 [SO page](https://unix.stackexchange.com/questions/892/is-there-a-way-to-see-details-of-all-the-threads-that-a-process-has-in-linux) with different commands
 
+```
+Similar info can be seen with lscpu which can also tell you which CPUs are on the same socket - so either plain lscpu or
+
+lscpu -e
+
+This is a bit messy because we've got 2 die's on the same socket and two sockets - so we've got 4 numa domains, each with its own local memory.  Regarding memory - we've got 24 DIMMs, 12/socket (6/numa domain).
+
+To see on which CPUs your tasks are running you can look at the current state with
+
+ps -elF
+
+where PSR column is the CPU on which process is currently executing. You can also ask to see process affinity of various processes with
+
+taskset -c -p PID
+
+(PID = process id of process you are curious about).  This will give you a list of CPUs that slurm is allowing this process to run on. You can then combine that info with numactl/lscpu output.
+Now, regarding slurm way - options that are helpful here are --cpu-bind and --mem-bind. You can use those to tweak where exactly your processes land as well as which memory they are allowed to use - e.g. --mem-bind=local would force use of only local memory. You can also give them verbose option to be told what exactly slurm is doing.  srun man page documents all of this.
+
+Note that you may be given hex affinity output - in which case 
+
+lscpu -x
+
+might be helpful to help connect that with individual numa domains.
+```
+
 ## multithreaded
 
 ```
